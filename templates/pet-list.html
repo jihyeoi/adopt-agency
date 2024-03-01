@@ -3,6 +3,7 @@
 {% block content %}
 {% for pet in pets %}
 <img src="{{pet.photo_url}}" alt="{{pet.name}}">
+<a type="button" href="/{{pet.id}}">Profile</a>
 {% if pet.available %}
 <p>{{pet.name}} is available!</p>
 
@@ -12,5 +13,6 @@
 {% endfor %}
 
 <a href="/add">Add a pet!</a>
+
 
 {% endblock %}
