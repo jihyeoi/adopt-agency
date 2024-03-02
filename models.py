@@ -15,7 +15,9 @@ def connect_db(app):
     db.app = app
     db.init_app(app)
 
+# TODO: make notes not nullable, add default = ""
 class Pet(db.Model):
+    """model for pet"""
 
     __tablename__ = "pets"
 

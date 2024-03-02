@@ -4,6 +4,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, BooleanField
 from wtforms.validators import InputRequired, Optional, URL
 
+# TODO: add form at the end of the name
 class AddPet(FlaskForm):
     """form for adding pets"""
 
@@ -21,10 +22,16 @@ class AddPet(FlaskForm):
 
     age = SelectField(
         "Age Category",
-        choices=[('baby', 'Baby'), ('young', 'Young'), ('adult', 'Adult'), ('senior', 'Senior')])
+        choices=[
+            ('baby', 'Baby'),
+            ('young', 'Young'),
+            ('adult', 'Adult'),
+            ('senior', 'Senior')])
 
     notes = StringField("Notes")
 
+
+# TODO: add form at the end of the name
 class EditPet(FlaskForm):
     """form for editing pets"""
 

@@ -37,16 +37,17 @@ def list_pets():
 
 @app.route("/add", methods=["GET", "POST"])
 def add_pet_form():
-    """displays a form to add a pet"""
+    """displays a form to add a pet and adds the pet if input is valid"""
 
     form = AddPet()
 
-    if form.validate_on_submit():
+    if form.validate_on_submit(): # token
         name = form.name.data
         species = form.species.data
         photo_url = form.photo_url.data
         age = form.age.data
         notes = form.notes.data
+
         new_pet = Pet(name=name, species=species,
         photo_url=photo_url, age=age, notes=notes)
 
@@ -57,6 +58,7 @@ def add_pet_form():
 
     else:
         return render_template("pet-add.html", form=form)
+
 
 @app.route("/<int:pet_id>", methods=["GET", "POST"])
 def pet_profile_edit(pet_id):
@@ -69,6 +71,7 @@ def pet_profile_edit(pet_id):
         pet.photo_url = form.photo_url.data
         pet.notes = form.notes.data
         pet.available = form.available.data
+
         db.session.commit()
 
         return redirect("/")
